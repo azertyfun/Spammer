@@ -12,8 +12,6 @@ import java.net.URL;
 
 import javax.swing.ImageIcon;
 
-import com.melloware.jintellitype.JIntellitype;
-
 public class Tray {
 	
 	protected PopupMenu popup;
