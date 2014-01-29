@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Name: Spammer
+Class-Path: lib/jintellitype-1.3.9.jar
+Main-Class: tk.azertyfun.spammer.Spammer
