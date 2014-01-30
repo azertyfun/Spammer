@@ -31,8 +31,8 @@ public class SpammerThread extends Thread {
 				r.mouseRelease(InputEvent.BUTTON1_MASK);
 			}
 			if(key == 0x02) {
-				r.mousePress(InputEvent.BUTTON2_MASK);
-				r.mouseRelease(InputEvent.BUTTON1_MASK);
+				r.mousePress(InputEvent.BUTTON3_MASK);
+				r.mouseRelease(InputEvent.BUTTON3_MASK);
 			}
 			try {
 				Thread.sleep(Spammer.spamSlow);
