@@ -25,12 +25,11 @@ public class Listener implements HotkeyListener {
 			Spammer.exit();
 		
 		if(!started[key]) {
-			spammers[key] = new SpammerThread(keys[key]);
+			spammers[key] = new SpammerThread(keys[key], key);
 			spammers[key].start();
 			started[key] = true;
 		}
 		else {
-			spammers[key].stopRunning();
 			started[key] = false;
 		}
 	}

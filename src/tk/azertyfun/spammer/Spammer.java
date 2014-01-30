@@ -7,6 +7,9 @@ import javax.swing.JOptionPane;
 import com.melloware.jintellitype.JIntellitype;
 
 public class Spammer {
+	
+	public static Listener listener;
+	public static final int spamSlow = 10; //En millisecondes, le temps entre chaque "spam" de touche.
 
 	public static void main(String[] args) {
 		
@@ -39,8 +42,7 @@ public class Spammer {
 		Tray tray = new Tray();
 		
 		//On crée un listener JIntelliType
-		@SuppressWarnings("unused")
-		Listener l = new Listener();
+		Spammer.listener = new Listener();
 	}
 	
 	

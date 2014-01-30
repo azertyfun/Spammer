@@ -8,10 +8,11 @@ public class SpammerThread extends Thread {
 	
 	protected int key;
 	protected Robot r;
-	protected boolean running = true;
+	protected int id;
 	
-	public SpammerThread(int key) {
+	public SpammerThread(int key, int id) {
 		this.key = key;
+		this.id = id;
 		System.out.println("SpammerThread '" + key + "' créé.");
 		try {
 			r = new Robot();
@@ -20,18 +21,9 @@ public class SpammerThread extends Thread {
 		}
 	}
 	
-	public boolean running() {
-		return running;
-	}
-	
-	public void stopRunning() {
-		System.out.println("SpammerThread '" + key + "' stoppé.");
-		running = false;
-	}
-	
 	@Override
 	public void run() {
-		while(running) {
+		while(Spammer.listener.started[id]) {
 			if(key > 0x02)
 				r.keyPress(key);
 			if(key == 0x01) {
@@ -42,7 +34,11 @@ public class SpammerThread extends Thread {
 				r.mousePress(InputEvent.BUTTON2_MASK);
 				r.mouseRelease(InputEvent.BUTTON1_MASK);
 			}
-			
+			try {
+				Thread.sleep(Spammer.spamSlow);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
